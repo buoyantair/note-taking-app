@@ -1,0 +1,18 @@
+<mat-card class="note" *ngIf="adding">
+  <form>
+    <mat-card-title >
+        <mat-form-field>
+          <input matInput placeholder="Title" name="title" [(ngModel)]="newNote.title"/>
+        </mat-form-field>
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+          <input matInput placeholder="Text" name="text" [(ngModel)]="newNote.text"/>
+        </mat-form-field>
+    </mat-card-content>
+  </form>
+  <mat-card-actions>
+    <button type="submit" mat-button (click)="addNote(newNote)">Add Note</button>
+    <button mat-button (click)="toggleDisplayAdd()">Cancel</button>
+  </mat-card-actions>
+</mat-card>

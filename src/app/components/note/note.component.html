@@ -1,0 +1,29 @@
+<mat-card class="note">
+  <div *ngIf="!editing">
+    <mat-card-title >
+      {{thisNote.title}}
+    </mat-card-title>
+    <mat-card-content>
+      {{thisNote.text}}
+    </mat-card-content>
+  </div>
+
+  <form *ngIf="editing">
+    <mat-card-title >
+        <mat-form-field>
+          <input matInput placeholder="Title" name="title" [(ngModel)]="thisNote.title"/>
+        </mat-form-field>
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+          <input matInput placeholder="Text" name="text" [(ngModel)]="thisNote.text"/>
+        </mat-form-field>
+    </mat-card-content>
+  </form>
+
+
+  <mat-card-actions>
+    <button mat-button (click)="!editing ? toggleEdit() : toggleEdit(thisNote)">{{!editing ? "Edit this note" : "Save"}}</button>
+    <button mat-button (click)="deleteNote(thisNote)">Delete</button>
+  </mat-card-actions>
+</mat-card>

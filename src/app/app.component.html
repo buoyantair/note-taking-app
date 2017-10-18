@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>Notes App</span>
+  <span class="fill-remaining-space"></span>
+  <span>
+    <button mat-button (click)="toggleDisplayAdd()">{{adding ? "Cancel" : "Add Note"}}</button>
+  </span>
+</mat-toolbar>
+
+<app-new-note [toggleDisplayAdd]="toggleDisplayAdd.bind(this)" [adding]="adding" [addNote]="addNote.bind(this)"></app-new-note>
+<app-note-list [notesList]="notes" [deleteNote]="deleteNote.bind(this)" [editNote]="editNote.bind(this)"></app-note-list>
